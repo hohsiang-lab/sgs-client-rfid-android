@@ -32,6 +32,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gradle-
 
+      - name: Generate Gradle Wrapper
+        run: |
+          # Generate gradle wrapper if jar is missing
+          if [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then
+            echo "gradle-wrapper.jar not found, generating it..."
+            gradle wrapper --gradle-version=8.0
+          fi
+
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
@@ -85,6 +93,14 @@ jobs:
         with:
           java-version: "17"
           distribution: "temurin"
+
+      - name: Generate Gradle Wrapper
+        run: |
+          # Generate gradle wrapper if jar is missing
+          if [ ! -f "gradle/wrapper/gradle-wrapper.jar" ]; then
+            echo "gradle-wrapper.jar not found, generating it..."
+            gradle wrapper --gradle-version=8.0
+          fi
 
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
