@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "mcp__interactive-feedback-mcp__interactive_feedback"
+    ],
+    "deny": []
+  }
+}
